@@ -8,6 +8,6 @@ do
     git pull origin master
     cd ..
   else
-    git clone $repo
+    git clone $repo $name
   fi
 done <"$file"
