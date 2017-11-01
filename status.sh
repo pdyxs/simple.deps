@@ -4,6 +4,8 @@ while IFS= read line
 do
   read name repo <<< "$line"
   cd $name
+  echo ""
+  echo "$name:"
   git status
   cd ..
 done <"$file"
