@@ -1,4 +1,9 @@
 file="../simple.dependencies"
+
+cd ./simple.deps
+git pull origin master
+cd ..
+
 cd ./Modules
 while IFS= read line
 do
@@ -8,6 +13,10 @@ do
     git pull origin master
     cd ..
   else
-    git clone $repo $name
+    if [-d "../../.git" ]; then
+      git submodule add $repo $name
+    else
+      git clone $repo $name
+    fi
   fi
 done <"$file"
