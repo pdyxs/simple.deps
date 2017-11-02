@@ -13,7 +13,7 @@ do
     git pull origin master
     cd ..
   else
-    if [-d "../../.git" ]; then
+    if [ -d "../../.git" ]; then
       git submodule add $repo $name
     else
       git clone $repo $name
