@@ -6,17 +6,17 @@ do
   cd $name
   echo ""
   echo "$name:"
-  git status
+  git status -s
   cd ..
 done <"$file"
 
 echo ""
 echo "simple.deps:"
 cd ../simple.deps
-git status
+git status -s
 cd ..
 
 echo ""
 echo "Base:"
-git status
+git status -s
 

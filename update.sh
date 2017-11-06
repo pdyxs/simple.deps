@@ -1,17 +1,15 @@
+CDIR=$PWD
+REPOS=()
 file="../simple.dependencies"
 
-cd ./simple.deps
-git pull origin master
-cd ..
+REPOS+=("./simple.deps")
 
 cd ./Modules
 while IFS= read line
 do
   read name repo <<< "$line"
   if [ -d "$name" ]; then
-    cd $name
-    git pull origin master
-    cd ..
+      REPOS+=("./Modules/$name")
   else
     if [ -d "../../.git" ]; then
       git submodule add $repo $name
@@ -20,3 +18,12 @@ do
     fi
   fi
 done <"$file"
+
+cd $CDIR
+for repo in ${REPOS[@]}; do
+    cd $repo
+    git fetch
+    [ $(git rev-parse HEAD) = $(git ls-remote $(git rev-parse --abbrev-ref @{u} | \
+        sed 's/\// /g') | cut -f1) ] && echo up to date || git pull origin master
+    cd $CDIR
+done
