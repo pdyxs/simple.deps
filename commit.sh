@@ -20,7 +20,7 @@ for repo in "${REPOS[@]}"; do
     echo $PWD
     echo $repo
     cd $repo
-    git add *
+    git add --all
     git commit -m "$2"
     git push origin master
     cd $CDIR
