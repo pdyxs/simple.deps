@@ -9,3 +9,14 @@ do
   git status
   cd ..
 done <"$file"
+
+echo ""
+echo "simple.deps:"
+cd ../simple.deps
+git status
+cd ..
+
+echo ""
+echo "Base:"
+git status
+
