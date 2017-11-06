@@ -16,7 +16,7 @@ elif [ $1="all" ]; then
     REPOS+=("./")
 fi
 
-for repo in "${REPOS[@]}"; do
+for repo in ${REPOS[@]}; do
     echo $PWD
     echo $repo
     cd $repo
