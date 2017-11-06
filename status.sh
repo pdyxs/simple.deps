@@ -16,7 +16,9 @@ cd ../simple.deps
 git status -s
 cd ..
 
-echo ""
-echo "Base:"
-git status -s
+if [ -d "../.git" ]; then
+    echo ""
+    echo "Base:"
+    git status -s
+fi
 

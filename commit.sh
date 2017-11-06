@@ -13,7 +13,9 @@ elif [ $1 == "all" ]; then
         read name repo <<< "$line"
         REPOS+=("./Modules/$name")
     done <"$file"
-    REPOS+=("./")
+    if [ -d "../.git" ]; then
+        REPOS+=("./")
+    fi
 fi
 
 for repo in ${REPOS[@]}; do
