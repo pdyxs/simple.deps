@@ -7,10 +7,10 @@ if [ $1="deps" ]; then
 elif [ -d "./Modules/$1" ]; then
     REPOS+=("./Modules/$1")
 elif [ $1="all" ]; then
-    REPOS+=("./simple.deps")
     while IFS= read line
     do
         read name repo <<< "$line"
+        echo $name
         REPOS+=("./Modules/$name")
     done <"$file"
     REPOS+=("./")
