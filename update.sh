@@ -4,12 +4,12 @@ file="../simple.dependencies"
 
 REPOS+=("./simple.deps")
 
-cd ./Modules
+cd ./Plugins
 while IFS= read line
 do
   read name repo <<< "$line"
   if [ -d "$name" ]; then
-      REPOS+=("./Modules/$name")
+      REPOS+=("./Plugins/$name")
   else
     if [ -d "../../.git" ]; then
       git submodule add $repo $name

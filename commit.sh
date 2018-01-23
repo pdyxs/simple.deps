@@ -4,14 +4,14 @@ REPOS=()
 
 if [ $1 == "deps" ]; then
     REPOS+=("./simple.deps")
-elif [ -d "./Modules/$1" ]; then
-    REPOS+=("./Modules/$1")
+elif [ -d "./Plugins/$1" ]; then
+    REPOS+=("./Plugins/$1")
 elif [ $1 == "all" ]; then
     REPOS+=("./simple.deps")
     while IFS= read line
     do
         read name repo <<< "$line"
-        REPOS+=("./Modules/$name")
+        REPOS+=("./Plugins/$name")
     done <"$file"
     if [ -d "../.git" ]; then
         REPOS+=("./")

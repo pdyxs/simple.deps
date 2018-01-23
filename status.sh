@@ -1,5 +1,5 @@
 file="../simple.dependencies"
-cd ./Modules
+cd ./Plugins
 while IFS= read line
 do
   read name repo <<< "$line"
